@@ -1,1 +1,2 @@
 libasio-dev
+protobuf-compiler

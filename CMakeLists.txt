@@ -26,6 +26,14 @@ endif()
 # 必要なパッケージのinclude
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
+find_package(Protobuf REQUIRED)
+
+# protobuのコンパイル
+file(GLOB "${PROJECT_NAME}_protobuf_files"
+LIST_DIRECTORIES false
+RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
+"config/proto/*")
+protobuf_generate_cpp("${PROJECT_NAME}_protobuf_src_files" "${PROJECT_NAME}_protobuf_header_files" ${${PROJECT_NAME}_protobuf_files})
 
 # interfaceファイル(msg, srv, action)のビルド
 file(GLOB msg_files
@@ -54,11 +62,13 @@ file(GLOB_RECURSE "${PROJECT_NAME}_lib_files"
   LIST_DIRECTORIES false
   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
   "src/*/*")
+list(APPEND "${PROJECT_NAME}_lib_files" ${${PROJECT_NAME}_protobuf_src_files})
 list(LENGTH ${PROJECT_NAME}_lib_files ${PROJECT_NAME}_lib_files_count)
 if(${PROJECT_NAME}_lib_files_count GREATER 0)
   ament_auto_add_library("${PROJECT_NAME}_lib" SHARED "${${PROJECT_NAME}_lib_files}")
   target_compile_features("${PROJECT_NAME}_lib" PUBLIC c_std_99 cxx_std_17)
-  target_link_libraries("${PROJECT_NAME}_lib" "${cpp_typesupport_target}")
+  target_link_libraries("${PROJECT_NAME}_lib" "${cpp_typesupport_target}" protobuf::libprotobuf)
+  target_include_directories("${PROJECT_NAME}_lib" PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 endif()
 
 # ノードプラグインの設定

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <!-- global parameter -->
+  <arg name="namespace" default="" description=""/>
+  <arg name="params_file" default="$(find-pkg-share traps_ssl_bridge_ros)/config/params/empty.yaml" description=""/>
+
+  <arg name="addresses" default="[224.5.23.1:10003, 224.5.23.2:10006, 224.5.23.2:10010, 224.5.23.2:10020]" description=""/>
+
+  <node pkg="traps_ssl_bridge_ros" exec="udp_receiver_node" namespace="$(var namespace)" output="screen">
+    <param name="addresses" value="$(var addresses)"/>
+    <param from="$(var params_file)"/>
+  </node>
+</launch>

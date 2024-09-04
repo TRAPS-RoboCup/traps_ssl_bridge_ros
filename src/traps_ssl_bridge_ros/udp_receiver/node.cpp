@@ -36,7 +36,7 @@ Node::Node(
 {
   // アドレスの取得
   const auto address_strs =
-    this->declare_parameter("addresses", std::vector<std::string>({"224.5.23.2:10020"}));
+    this->declare_parameter("addresses", std::vector<std::string>());
 
   // アドレスからsocketとpublisherを構築
   socket_and_publishers_.reserve(address_strs.size());

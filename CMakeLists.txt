@@ -72,8 +72,16 @@ if(${PROJECT_NAME}_lib_files_count GREATER 0)
 endif()
 
 # ノードプラグインの設定
-set(node_plugins)
-foreach(node_plugin IN LISTS node_plugins)
+file(GLOB "${PROJECT_NAME}_node_files"
+  LIST_DIRECTORIES false
+  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/src/${PROJECT_NAME}"
+  "src/${PROJECT_NAME}/*/node.cpp")
+set(${PROJECT_NAME}_node_plugins)
+foreach(node_file IN LISTS "${PROJECT_NAME}_node_files")
+  string(REPLACE "/node.cpp" "" node_plugin "${node_file}")
+    list(APPEND ${PROJECT_NAME}_node_plugins "${node_plugin}")
+endforeach()
+foreach(node_plugin IN LISTS ${PROJECT_NAME}_node_plugins)
   rclcpp_components_register_node("${PROJECT_NAME}_lib"
     PLUGIN "${PROJECT_NAME}::${node_plugin}::Node"
     EXECUTABLE ${node_plugin}_node)

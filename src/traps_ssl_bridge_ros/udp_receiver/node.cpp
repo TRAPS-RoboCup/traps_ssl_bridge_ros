@@ -35,25 +35,32 @@ Node::Node(
   io_service_()
 {
   // アドレスの取得
-  const auto address_strs =
-    this->declare_parameter("addresses", std::vector<std::string>());
+  const auto address_strs = this->declare_parameter("addresses", std::vector<std::string>());
 
   // アドレスからsocketとpublisherを構築
   socket_and_publishers_.reserve(address_strs.size());
   for (const auto & address_str : address_strs) {
     try {
       // ':'で区切られたipアドレスとポートを取得(できなければエラー)
-      const auto sepalate_pos = address_str.find(':');
-      if (sepalate_pos == std::string::npos) {
-        const auto error_str = fmt::format(
-          "address \"{}\" is invalid format. (format must be \"[ip address]:[port]\")",
-          address_str);
-        RCLCPP_ERROR(this->get_logger(), error_str.c_str());
+      const auto format_error_msg_getter = [](const auto & address_str) {
+          return fmt::format(
+            "address \"{}\" is invalid format. (format must be \"[alias]:[ip address]:[port]\")",
+            address_str);
+        };
+      const auto sepalate_pos_0 = address_str.find(':');
+      if (sepalate_pos_0 == std::string::npos) {
+        RCLCPP_ERROR(this->get_logger(), format_error_msg_getter(address_str).c_str());
         continue;
       }
-      const auto ip_address_str = address_str.substr(0, sepalate_pos);
+      const auto sepalate_pos_1 = address_str.substr(sepalate_pos_0 + 1).find(':');
+      if (sepalate_pos_0 == std::string::npos) {
+        RCLCPP_ERROR(this->get_logger(), format_error_msg_getter(address_str).c_str());
+        continue;
+      }
+      const auto alias = address_str.substr(0, sepalate_pos_0);
+      const auto ip_address_str = address_str.substr(sepalate_pos_0 + 1, sepalate_pos_1);
       const auto ip_address = asio::ip::address::from_string(ip_address_str);
-      const auto port_str = address_str.substr(sepalate_pos + 1);
+      const auto port_str = address_str.substr(sepalate_pos_0 + sepalate_pos_1 + 2);
       int port;
       [[maybe_unused]] const auto [port_ptr, port_ec] =
         std::from_chars(port_str.data(), port_str.data() + port_str.size(), port);
@@ -82,9 +89,7 @@ Node::Node(
       socket_and_publishers_.emplace_back(
         SocketAndPublisher{
           std::move(socket),
-          this->create_publisher<SerialMsg>(
-            fmt::format("udp_buffer/p{}", port_str),
-            dynamic_qos())});
+          this->create_publisher<SerialMsg>(fmt::format("udp_buffer/{}", alias), dynamic_qos())});
     }
     // asio
     catch (const asio::system_error::exception & e) {

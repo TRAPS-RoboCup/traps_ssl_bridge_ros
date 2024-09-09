@@ -43,7 +43,7 @@ Node::Node(
           this->declare_parameter("yellow_robots.prefix", "yellow"),
           this->declare_parameter("yellow_robots.count", 11))))),
   map_publisher_(this->create_publisher<MapMsg>("map", static_qos())),
-  udp_buffer_subscription_(this->create_subscription<SerialMsg>("udp_buffer/p10020", dynamic_qos(), [this](const SerialMsg::ConstSharedPtr udp_buffer_msg){ this->receive(std::move(udp_buffer_msg)); }))
+  udp_buffer_subscription_(this->create_subscription<SerialMsg>("udp_buffer/ssl_vision", dynamic_qos(), [this](const SerialMsg::ConstSharedPtr udp_buffer_msg){ this->receive(std::move(udp_buffer_msg)); }))
 {
   // map_msgと関連変数の初期化
   map_msg_.header.frame_id = this->has_parameter("frame_id") ?

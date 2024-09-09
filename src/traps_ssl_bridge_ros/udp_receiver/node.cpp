@@ -35,8 +35,7 @@ Node::Node(
   io_service_()
 {
   // アドレスの取得
-  const auto address_strs =
-    this->declare_parameter("addresses", std::vector<std::string>());
+  const auto address_strs = this->declare_parameter("addresses", std::vector<std::string>());
 
   // アドレスからsocketとpublisherを構築
   socket_and_publishers_.reserve(address_strs.size());
@@ -44,10 +43,10 @@ Node::Node(
     try {
       // ':'で区切られたipアドレスとポートを取得(できなければエラー)
       const auto format_error_msg_getter = [](const auto & address_str) {
-        return fmt::format(
-          "address \"{}\" is invalid format. (format must be \"[alias]:[ip address]:[port]\")",
-          address_str);
-      };
+          return fmt::format(
+            "address \"{}\" is invalid format. (format must be \"[alias]:[ip address]:[port]\")",
+            address_str);
+        };
       const auto sepalate_pos_0 = address_str.find(':');
       if (sepalate_pos_0 == std::string::npos) {
         RCLCPP_ERROR(this->get_logger(), format_error_msg_getter(address_str).c_str());
@@ -90,9 +89,7 @@ Node::Node(
       socket_and_publishers_.emplace_back(
         SocketAndPublisher{
           std::move(socket),
-          this->create_publisher<SerialMsg>(
-            fmt::format("udp_buffer/{}", alias),
-            dynamic_qos())});
+          this->create_publisher<SerialMsg>(fmt::format("udp_buffer/{}", alias), dynamic_qos())});
     }
     // asio
     catch (const asio::system_error::exception & e) {

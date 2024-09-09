@@ -6,8 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /PoseWithCovariance33
-        - /PoseWithCovariance33/Covariance1
+        - /ball/pose1/Covariance1
         - /Map1/Topic1
       Splitter Ratio: 0.5
     Tree Height: 549
@@ -73,7 +72,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue00/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -108,7 +107,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue01/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -143,7 +142,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue02/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -178,7 +177,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue03/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -213,7 +212,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue04/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -248,7 +247,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue05/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -283,7 +282,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue06/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -318,7 +317,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue07/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -353,7 +352,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue08/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -388,7 +387,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue09/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -423,7 +422,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue10/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -458,7 +457,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue11/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -493,7 +492,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue12/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -528,7 +527,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue13/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -563,7 +562,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue14/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -598,7 +597,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: blue15/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -633,7 +632,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow00/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -668,7 +667,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow01/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -703,7 +702,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow02/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -738,7 +737,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow03/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -773,7 +772,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow04/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -808,7 +807,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow05/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -843,7 +842,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow06/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -878,7 +877,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow07/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -913,7 +912,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow08/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -948,7 +947,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow09/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -983,7 +982,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow10/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1018,7 +1017,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow11/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1053,7 +1052,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow12/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1088,7 +1087,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow13/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1123,7 +1122,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow14/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1158,7 +1157,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.20000000298023224
       Head Radius: 0.10000000149011612
-      Name: PoseWithCovariance
+      Name: yellow15/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -1193,7 +1192,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0
       Head Radius: 0
-      Name: PoseWithCovariance
+      Name: ball/pose
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.10000000149011612
       Shape: Arrow
@@ -1272,25 +1271,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 10.130891799926758
+      Distance: 15.350738525390625
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.5015727281570435
-        Y: 0.5379692912101746
-        Z: 1.243757724761963
-      Focal Shape Fixed Size: true
+        X: 0.9489812850952148
+        Y: 0.40605613589286804
+        Z: -0.2052404284477234
+      Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.0203971862792969
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.1804145574569702
+      Yaw: 1.5653975009918213
     Saved: ~
 Window Geometry:
   Displays:

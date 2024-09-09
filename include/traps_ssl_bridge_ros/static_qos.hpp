@@ -23,7 +23,10 @@ namespace traps_ssl_bridge_ros
 namespace
 {
 
-inline auto static_qos() noexcept {return rclcpp::QoS(1).reliable().transient_local();}
+inline auto static_qos(std::size_t qos_depth = 1) noexcept
+{
+  return rclcpp::QoS(qos_depth).reliable().transient_local();
+}
 
 }  // namespace
 

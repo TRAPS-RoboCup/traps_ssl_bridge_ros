@@ -44,11 +44,15 @@ Node::Node(
           this->declare_parameter("yellow_robots.count", 11))))),
   ball_publisher_(this->create_publisher<PoseMsg>("ball/pose", dynamic_qos())),
   map_publisher_(this->create_publisher<MapMsg>("map", static_qos())),
-  udp_buffer_subscription_(this->create_subscription<SerialMsg>("udp_buffer/ssl_vision", dynamic_qos(), [this](const SerialMsg::ConstSharedPtr udp_buffer_msg){ this->receive(std::move(udp_buffer_msg)); }))
+  udp_buffer_subscription_(this->create_subscription<SerialMsg>(
+      "udp_buffer/ssl_vision", dynamic_qos(),
+      [this](const SerialMsg::ConstSharedPtr udp_buffer_msg) {
+        this->receive(std::move(udp_buffer_msg));
+      }))
 {
   // frame_id初期化
-  ball_pose_msg_.header.frame_id = map_msg_.header.frame_id = this->has_parameter("frame_id") ?
-    this->get_parameter("frame_id").as_string() :
+  ball_pose_msg_.header.frame_id = map_msg_.header.frame_id =
+    this->has_parameter("frame_id") ? this->get_parameter("frame_id").as_string() :
     this->declare_parameter("frame_id", "map");
 
   // ball_pose_msgの初期化

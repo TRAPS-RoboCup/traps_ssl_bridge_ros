@@ -27,7 +27,8 @@ namespace
 {
 
 template<class SubNode = rclcpp::Node::SharedPtr>
-inline auto create_robot_sub_nodes(rclcpp::Node * node, const std::vector<std::string> & robot_names)
+inline auto create_robot_sub_nodes(
+  rclcpp::Node * node, const std::vector<std::string> & robot_names)
 {
   auto robot_subnodes = std::vector<SubNode>();
   for (const auto & robot_name : robot_names) {

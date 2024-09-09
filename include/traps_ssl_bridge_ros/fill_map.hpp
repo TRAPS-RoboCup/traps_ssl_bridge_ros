@@ -16,6 +16,7 @@
 #define TRAPS_SSL_BRIDGE_ROS__FILL_MAP_HPP_
 
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "fmt/core.h"

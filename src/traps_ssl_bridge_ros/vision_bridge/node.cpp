@@ -45,7 +45,7 @@ Node::Node(
   ball_publisher_(this->create_publisher<PoseMsg>("ball/pose", dynamic_qos())),
   map_publisher_(this->create_publisher<MapMsg>("map", static_qos())),
   udp_buffer_subscription_(this->create_subscription<SerialMsg>(
-      "udp_buffer/ssl_vision", dynamic_qos(),
+      "udp_buffer/ssl_vision", dynamic_qos(4),
       [this](const SerialMsg::ConstSharedPtr udp_buffer_msg) {
         this->receive(std::move(udp_buffer_msg));
       }))

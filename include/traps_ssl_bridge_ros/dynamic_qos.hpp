@@ -23,7 +23,7 @@ namespace traps_ssl_bridge_ros
 namespace
 {
 
-inline auto dynamic_qos() noexcept {return rclcpp::QoS(1).best_effort().durability_volatile();}
+inline auto dynamic_qos(std::size_t qos_depth  = 1) noexcept {return rclcpp::QoS(qos_depth).best_effort().durability_volatile();}
 
 }  // namespace
 

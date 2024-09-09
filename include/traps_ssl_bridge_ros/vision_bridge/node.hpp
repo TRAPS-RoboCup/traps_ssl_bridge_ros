@@ -56,15 +56,18 @@ public:
   }
 
 private:
+  using PoseMsg = geometry_msgs::msg::PoseWithCovarianceStamped;
   using MapMsg = nav_msgs::msg::OccupancyGrid;
   using SerialMsg = traps_ssl_bridge_ros::msg::Serial;
 
   void receive(const SerialMsg::ConstSharedPtr udp_buffer_msg);
 
   std::vector<std::optional<RobotSubNode>> blue_robot_sub_nodes_, yellow_robot_sub_nodes_;
+  rclcpp::Publisher<PoseMsg>::SharedPtr ball_publisher_;
   rclcpp::Publisher<MapMsg>::SharedPtr map_publisher_;
   rclcpp::Subscription<SerialMsg>::SharedPtr udp_buffer_subscription_;
 
+  PoseMsg ball_pose_msg_;
   MapMsg map_msg_;
   double map_resolution_inv_;
   std::size_t wall_thickness_, goal_width_, goal_height_harf_;

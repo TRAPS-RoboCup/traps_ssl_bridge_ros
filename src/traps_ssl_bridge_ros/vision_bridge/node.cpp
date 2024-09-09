@@ -42,13 +42,28 @@ Node::Node(
         "yellow_robots", create_robot_names(
           this->declare_parameter("yellow_robots.prefix", "yellow"),
           this->declare_parameter("yellow_robots.count", 11))))),
+  ball_publisher_(this->create_publisher<PoseMsg>("ball/pose", dynamic_qos())),
   map_publisher_(this->create_publisher<MapMsg>("map", static_qos())),
   udp_buffer_subscription_(this->create_subscription<SerialMsg>("udp_buffer/ssl_vision", dynamic_qos(), [this](const SerialMsg::ConstSharedPtr udp_buffer_msg){ this->receive(std::move(udp_buffer_msg)); }))
 {
-  // map_msgと関連変数の初期化
-  map_msg_.header.frame_id = this->has_parameter("frame_id") ?
+  // frame_id初期化
+  ball_pose_msg_.header.frame_id = map_msg_.header.frame_id = this->has_parameter("frame_id") ?
     this->get_parameter("frame_id").as_string() :
     this->declare_parameter("frame_id", "map");
+
+  // ball_pose_msgの初期化
+  ball_pose_msg_.pose.covariance = {
+    0.25, 0.00, 0.00, 0.00, 0.00, 0.00,  //
+    0.00, 0.25, 0.00, 0.00, 0.00, 0.00,  //
+    0.00, 0.00, 0.00, 0.00, 0.00, 0.00,  //
+    0.00, 0.00, 0.00, 0.00, 0.00, 0.00,  //
+    0.00, 0.00, 0.00, 0.00, 0.00, 0.00,  //
+    0.00, 0.00, 0.00, 0.00, 0.00, 0.25,  //
+  };
+  ball_pose_msg_.pose.pose.orientation.y = -std::sqrt(0.5);
+  ball_pose_msg_.pose.pose.orientation.w = +std::sqrt(0.5);
+
+  // map_msgと関連変数の初期化
   map_msg_.info.resolution = this->declare_parameter("map.resolution", 0.005);
   map_resolution_inv_ = 1.0 / map_msg_.info.resolution;
   wall_thickness_ = 0.02 * map_resolution_inv_;
@@ -92,6 +107,14 @@ void Node::receive(const SerialMsg::ConstSharedPtr udp_buffer_msg)
       };
     publish_robots(yellow_robot_sub_nodes_, detection.robots_yellow());
     publish_robots(blue_robot_sub_nodes_, detection.robots_blue());
+
+    for (const auto & ball : detection.balls()) {
+      ball_pose_msg_.header.stamp = stamp;
+      ball_pose_msg_.pose.pose.position.x = ball.x();
+      ball_pose_msg_.pose.pose.position.y = ball.y();
+      ball_pose_msg_.pose.pose.position.z = ball.z();
+      ball_publisher_->publish(ball_pose_msg_);
+    }
   }
 
   // geometryのpublish
